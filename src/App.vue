@@ -1,8 +1,14 @@
 <template>
   <div id="app">
-    <draggable v-model="myArray" :options="{group:'people'}" @start="drag=true" @end="drag=false">
-      <div v-for="element in myArray" :key="element.id">{{element.name}}</div>
+    <draggable v-model="myArray">
+      <transition-group>
+        <div v-for="element in myArray" :key="element.id" class="draggable-item">
+          <mu-icon value="home"/>
+          <mu-text-field v-model="element.name" /><br/>
+        </div>
+      </transition-group>
     </draggable>
+    <div>{{myArray}}</div>
   </div>
 </template>
 
@@ -24,10 +30,14 @@ export default {
         name:'demo3'
       }]
     }
+  },
+  methods: {
   }
 }
 </script>
 
 <style lang="scss">
-
+.draggable-item {
+  cursor: move;
+}
 </style>
