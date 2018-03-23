@@ -39,6 +39,9 @@ export default {
 </script>
 
 <style lang="scss">
+#app {
+  min-height: 800px;
+}
 .draggable-item {
   cursor: move;
 }
