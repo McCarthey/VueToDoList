@@ -29,7 +29,11 @@ export default {
       RandomColor:'red',
     }
   },
+  created(){
+    this.checkStorage();
+  },
   methods: {
+    //创建新活动
     newAct(){
       console.log('new one');
       let newOne = {};
@@ -38,11 +42,17 @@ export default {
       newOne.color = this.randomColor();
       this.myArray.push(newOne);
     },
+    //随机取颜色
     randomColor(){
       const colorSet = ['red','pink','purple','#673ab7','blue','cyan','teal',
       'green','lime','yellow','amber','orange'];
       let colorIndex = Math.floor(Math.random()*colorSet.length)
       return colorSet[colorIndex];
+    },
+    //检查localStorage
+    checkStorage(){
+      console.log(localStorage);
+      
     }
   }
 }
