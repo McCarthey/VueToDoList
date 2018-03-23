@@ -1,11 +1,11 @@
 <template>
   <div id="app">
-    <colorPicker v-model="RandomColor"></colorPicker>
-    <draggable v-model="myArray">
+    <!-- <colorPicker v-model="RandomColor"></colorPicker> -->
+    <draggable v-model="myArray" >
       <transition-group>
         <div v-for="element in myArray" :key="element.id" class="draggable-item">
-          <mu-icon value="home" :color="RandomColor" />
-          <mu-text-field v-model="element.name" /><br/>
+          <mu-icon value="label" :color="RandomColor" />
+          <mu-text-field v-model="element.text" fullWidth /><br/>
         </div>
       </transition-group>
     </draggable>
@@ -22,15 +22,15 @@ export default {
     return {
       myArray: [{
         id:1,
-        name:'demo1',
+        text:'demo1',
       },{
         id:2,
-        name:'demo2',
+        text:'demo2',
       },{
         id:3,
-        name:'demo3',
+        text:'demo3',
       }],
-      RandomColor:'red'
+      RandomColor:'red',
     }
   },
   methods: {
@@ -41,8 +41,19 @@ export default {
 <style lang="scss">
 #app {
   min-height: 800px;
+  max-width: 1000px;
+  margin: 40px auto;
+  box-shadow: 0px 10px 30px #ddd;
+  padding: 40px;
 }
 .draggable-item {
   cursor: move;
+  border: 2px dashed transparent;
+}
+//空行的元素状态
+.sortable-ghost {
+  opacity: 0.6;
+  background: #C8EBFB;
+  border: 2px dashed #666;
 }
 </style>
