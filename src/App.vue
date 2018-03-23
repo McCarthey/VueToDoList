@@ -4,8 +4,8 @@
     <draggable v-model="myArray" >
       <transition-group>
         <div v-for="element in myArray" :key="element.id" class="draggable-item">
-          <mu-icon value="label" :color="RandomColor" />
-          <mu-text-field v-model="element.text" fullWidth /><br/>
+          <mu-icon value="label_outline" :color="RandomColor" />
+          <mu-text-field v-model="element.text" /><br/>
         </div>
       </transition-group>
     </draggable>
@@ -39,6 +39,7 @@ export default {
 </script>
 
 <style lang="scss">
+@import './style.scss';
 #app {
   min-height: 800px;
   max-width: 1000px;
