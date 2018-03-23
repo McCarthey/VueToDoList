@@ -4,13 +4,14 @@
     <draggable v-model="myArray" >
       <transition-group>
         <div v-for="element in myArray" :key="element.id" class="draggable-item">
-          <mu-icon value="label_outline" :color="RandomColor" />
-          <mu-text-field v-model="element.text" /><br/>
+          <mu-icon value="label_outline" :color="element.color" />
+          <mu-text-field v-model="element.text" hintText="写点儿什么吧" /><br/>
         </div>
       </transition-group>
     </draggable>
     <div>{{myArray}}</div>
-  </div>
+    <mu-raised-button class="demo-raised-button" label="新建活动" icon="add" @click="newAct" primary/>
+  </div> 
 </template>
 
 <script>
@@ -23,17 +24,26 @@ export default {
       myArray: [{
         id:1,
         text:'demo1',
-      },{
-        id:2,
-        text:'demo2',
-      },{
-        id:3,
-        text:'demo3',
+        color:'red'
       }],
       RandomColor:'red',
     }
   },
   methods: {
+    newAct(){
+      console.log('new one');
+      let newOne = {};
+      newOne.id = this.myArray.length + 1;
+      newOne.text = '';
+      newOne.color = this.randomColor();
+      this.myArray.push(newOne);
+    },
+    randomColor(){
+      const colorSet = ['red','pink','purple','#673ab7','blue','cyan','teal',
+      'green','lime','yellow','amber','orange'];
+      let colorIndex = Math.floor(Math.random()*colorSet.length)
+      return colorSet[colorIndex];
+    }
   }
 }
 </script>
