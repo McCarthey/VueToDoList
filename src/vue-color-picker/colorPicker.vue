@@ -202,16 +202,16 @@ export default {
   position: relative; text-align: left; font-size: 14px; display: inline-block;
   ul,li,ol{ list-style: none; margin: 0; padding: 0; }
   input{ display: none; }
-  .colorBtn{ width: 15px; height: 15px; }
+  .colorBtn{ width: 15px; height: 15px; cursor: pointer;}
   .colorBtn.disabled{ cursor: no-drop; }
   .box{
-    position: absolute; width: 190px; background: #fff; border: 1px solid #ddd; visibility: hidden; border-radius: 2px; margin-top: 2px; padding: 10px; padding-bottom: 5px; box-shadow: 0 0 5px rgba(0,0,0,.15); opacity: 0; transition: all .3s ease;
+    position: absolute; width: 220px; background: #fff; border: 1px solid #ddd; visibility: hidden; border-radius: 2px; margin-top: 2px; padding: 10px; padding-bottom: 5px; box-shadow: 0 0 5px rgba(0,0,0,.15); opacity: 0; transition: all .3s ease;
     h3{ margin: 0; font-size: 14px; font-weight: normal; margin-top: 10px; margin-bottom: 5px; line-height: 1; }
   }
-  .box.open{ visibility: visible; opacity: 1; }
+  .box.open{ visibility: visible; opacity: 1; z-index:999;}
   .hd{
     overflow: hidden; line-height: 29px;
-    .colorView{ width: 100px; height: 30px; float: left; transition: background-color .3s ease; }
+    .colorView{ width: 60px; height: 30px; float: left; transition: background-color .3s ease; }
     .defaultColor{ width: 80px; float: right; text-align: center; border: 1px solid #ddd; cursor: pointer; }
   }
   .tColor{
