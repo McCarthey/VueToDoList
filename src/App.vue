@@ -24,7 +24,6 @@ export default {
   components: { draggable },
   data() {
     return {
-<<<<<<< HEAD
       myArray: [
         {
           id: 1,
@@ -43,42 +42,6 @@ export default {
     }
   },
   methods: {}
-=======
-      myArray: [{
-        id:1,
-        text:'demo1',
-        color:'red'
-      }],
-      RandomColor:'red',
-    }
-  },
-  created(){
-    this.checkStorage();
-  },
-  methods: {
-    //创建新活动
-    newAct(){
-      console.log('new one');
-      let newOne = {};
-      newOne.id = this.myArray.length + 1;
-      newOne.text = '';
-      newOne.color = this.randomColor();
-      this.myArray.push(newOne);
-    },
-    //随机取颜色
-    randomColor(){
-      const colorSet = ['red','pink','purple','#673ab7','blue','cyan','teal',
-      'green','lime','yellow','amber','orange'];
-      let colorIndex = Math.floor(Math.random()*colorSet.length)
-      return colorSet[colorIndex];
-    },
-    //检查localStorage
-    checkStorage(){
-      console.log(localStorage);
-      
-    }
-  }
->>>>>>> 4cd96833ff6bc93f94d00fa02c0ebf7509409ce1
 }
 </script>
 
