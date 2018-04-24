@@ -10,6 +10,10 @@
       </transition-group>
     </draggable>
     <div>{{myArray}}</div>
+    <div class="op-btn_group">
+      <mu-raised-button label="保存" class="demo-raised-button" primary/>
+      <mu-raised-button label="删除" class="demo-raised-button" secondary/>
+    </div>
   </div>
 </template>
 
@@ -18,23 +22,26 @@ import draggable from 'vuedraggable'
 export default {
   name: 'app',
   components: { draggable },
-  data () {
+  data() {
     return {
-      myArray: [{
-        id:1,
-        name:'demo1',
-      },{
-        id:2,
-        name:'demo2',
-      },{
-        id:3,
-        name:'demo3',
-      }],
-      RandomColor:'red'
+      myArray: [
+        {
+          id: 1,
+          name: 'demo1'
+        },
+        {
+          id: 2,
+          name: 'demo2'
+        },
+        {
+          id: 3,
+          name: 'demo3'
+        }
+      ],
+      RandomColor: 'red'
     }
   },
-  methods: {
-  }
+  methods: {}
 }
 </script>
 
