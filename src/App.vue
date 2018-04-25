@@ -54,6 +54,8 @@ export default {
     // 保存事件
     onSave() {
       console.log('button save')
+      // 不能直接保存 需要转换成字符串
+      localStorage.setItem('mc_to_do_list', this.myArray)
     },
     // 删除事件
     onDelete() {
