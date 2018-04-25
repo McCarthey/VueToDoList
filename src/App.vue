@@ -43,13 +43,17 @@ export default {
     }
   },
   methods: {
+    // 新建事件
+    onCreate() {
+      console.log('button create', this.myArray)
+      this.myArray.push({
+        id: this.myArray.length + 1,
+        name: ''
+      })
+    },
     // 保存事件
     onSave() {
       console.log('button save')
-    },
-    // 新建事件
-    onCreate() {
-      console.log('button create')
     },
     // 删除事件
     onDelete() {
