@@ -11,8 +11,9 @@
     </draggable>
     <div>{{myArray}}</div>
     <div class="op-btn_group">
-      <mu-raised-button label="保存" class="demo-raised-button" primary/>
-      <mu-raised-button label="删除" class="demo-raised-button" secondary/>
+      <mu-raised-button label="新建" class="demo-raised-button" backgroundColor="#4caf50" @click="onCreate"/>
+      <mu-raised-button label="保存" class="demo-raised-button" @click="onSave" primary/>
+      <mu-raised-button label="删除" class="demo-raised-button" @click="onDelete" secondary/>
     </div>
   </div>
 </template>
@@ -41,7 +42,20 @@ export default {
       RandomColor: 'red'
     }
   },
-  methods: {}
+  methods: {
+    // 保存事件
+    onSave() {
+      console.log('button save')
+    },
+    // 新建事件
+    onCreate() {
+      console.log('button create')
+    },
+    // 删除事件
+    onDelete() {
+      console.log('button delete')
+    }
+  }
 }
 </script>
 
