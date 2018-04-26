@@ -42,6 +42,11 @@ export default {
       RandomColor: 'red'
     }
   },
+  created(){
+    let listString = localStorage.getItem('mc_to_do_list')
+    let list = JSON.parse(listString)
+    console.log('读取localStorage中的内容',list)
+  },
   methods: {
     // 新建事件
     onCreate() {
@@ -54,8 +59,8 @@ export default {
     // 保存事件
     onSave() {
       console.log('button save')
-      // 不能直接保存 需要转换成字符串
-      localStorage.setItem('mc_to_do_list', this.myArray)
+      // 不能直接保存 需要转换成json字符串
+      localStorage.setItem('mc_to_do_list', JSON.stringify(this.myArray))
     },
     // 删除事件
     onDelete() {
