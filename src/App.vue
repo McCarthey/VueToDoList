@@ -6,16 +6,16 @@
     </div>
     <draggable v-model="myArray" @end="onDrop">
       <transition-group>
-        <div v-for="element in myArray" :key="element.id" class="draggable-item">
+        <div v-for="(element,index) in myArray" :key="index" class="draggable-item">
           <!-- <mu-icon value="label_outline" :color="RandomColor" /> -->
           <mu-checkbox class="checkbox" v-model="element.done"/>
           <mu-text-field v-model="element.text" hintText="写点儿什么吧" @blur="onSave" :disabled="element.done" :class="element.done? 'act-input-done': 'act-input' " />
-          <mu-icon-button icon="delete" @click="onDelete" iconClass="icon-delete"/>
+          <mu-icon-button icon="delete" @click="onDelete(index)" iconClass="icon-delete"/>
           <!-- 是否需要多行文本 -->
         </div>
       </transition-group>
     </draggable>
-    <div>{{myArray}}</div>
+    <!-- <div>{{myArray}}</div> -->
     <div class="op-btn_group">
       <mu-raised-button label="新建" class="raised-button" backgroundColor="#4caf50" @click="onCreate"/>
       <mu-raised-button label="保存" class="raised-button" @click="onSave" primary/>
@@ -77,8 +77,10 @@ export default {
             console.log("button delete")
         },
         // 删除单个事件
-        onDelete(){
-          console.log('删除该事件')
+        onDelete(index){
+          console.log(`删除${index}该事件?`)
+          this.myArray.splice(index,1)
+          this.onSave()
         },
         // 清空localStorage
         clearAllActs() {
