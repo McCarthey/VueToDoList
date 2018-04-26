@@ -15,13 +15,13 @@
     <div class="op-btn_group">
       <mu-raised-button label="新建" class="demo-raised-button" backgroundColor="#4caf50" @click="onCreate"/>
       <mu-raised-button label="保存" class="demo-raised-button" @click="onSave" primary/>
-      <mu-raised-button label="清空" class="demo-raised-button" @click="onDelete" secondary/>
+      <mu-raised-button label="清空" class="demo-raised-button" @click="onClearAll" secondary/>
     </div>
     <!-- 删除确认弹窗 -->
-    <mu-dialog :open="dialog" title="Dialog" @close="closeDialog">
-      这是一个简单的弹出框
+    <mu-dialog :open="dialog" title="提示" @close="closeDialog">
+      {{dialogHeadText}}
       <mu-flat-button slot="actions" @click="closeDialog" primary label="取消"/>
-      <mu-flat-button slot="actions" primary @click="closeDialog" label="确定"/>
+      <mu-flat-button slot="actions" primary @click="clearAllActs" label="确定"/>
     </mu-dialog>
   </div>
 </template>
@@ -35,13 +35,14 @@ export default {
         return {
             myArray: [],
             RandomColor: "#999",
-            dialog: false
+            dialog: false,
+            dialogHeadText: '是否删除该活动？'
         }
     },
     created() {
         let listString = localStorage.getItem("mc_to_do_list")
         let list = JSON.parse(listString)
-        this.myArray = list
+        this.myArray = list || []
         console.log("读取localStorage中的内容", list)
     },
     methods: {
@@ -64,12 +65,17 @@ export default {
             // 不能直接保存 需要转换成json字符串
             localStorage.setItem("mc_to_do_list", JSON.stringify(this.myArray))
         },
-        // 删除事件
-        onDelete() {
+        // 清空事件
+        onClearAll() {
             this.dialog = true
+            this.dialogHeadText = "是否删除全部活动？"
             console.log("button delete")
         },
-
+        // 清空localStorage
+        clearAllActs(){
+          localStorage.removeItem("mc_to_do_list")
+          this.dialog = false
+        },
         // 关闭对话框
         closeDialog(){
           this.dialog = false
