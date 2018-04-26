@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <!-- <colorPicker v-model="RandomColor"></colorPicker> -->
-    <draggable v-model="myArray" >
+    <draggable v-model="myArray" @end="onDrop">
       <transition-group>
         <div v-for="element in myArray" :key="element.id" class="draggable-item">
           <mu-icon value="label_outline" :color="RandomColor" />
@@ -36,6 +36,11 @@ export default {
     console.log('读取localStorage中的内容',list)
   },
   methods: {
+    // 拖动元素事件
+    onDrop(){
+      this.onSave()
+      console.log('item dropped')
+    },
     // 新建事件
     onCreate() {
       console.log('button create', this.myArray)
