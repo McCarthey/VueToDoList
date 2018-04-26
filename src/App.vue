@@ -1,12 +1,14 @@
 <template>
   <div id="app">
     <!-- <colorPicker v-model="RandomColor"></colorPicker> -->
+    <div v-if="myArray.length === 0">
+      还没有创建活动
+    </div>
     <draggable v-model="myArray" @end="onDrop">
       <transition-group>
         <div v-for="element in myArray" :key="element.id" class="draggable-item">
           <mu-icon value="label_outline" :color="RandomColor" />
           <mu-text-field v-model="element.text" hintText="写点儿什么吧" @blur="onSave" />
-          
           <br/>
         </div>
       </transition-group>
@@ -75,6 +77,7 @@ export default {
         clearAllActs(){
           localStorage.removeItem("mc_to_do_list")
           this.dialog = false
+          this.myArray = []
         },
         // 关闭对话框
         closeDialog(){
