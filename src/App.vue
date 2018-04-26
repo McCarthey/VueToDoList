@@ -7,17 +7,18 @@
     <draggable v-model="myArray" @end="onDrop">
       <transition-group>
         <div v-for="element in myArray" :key="element.id" class="draggable-item">
-          <mu-icon value="label_outline" :color="RandomColor" />
-          <mu-text-field v-model="element.text" hintText="写点儿什么吧" @blur="onSave" />
-          <br/>
+          <!-- <mu-icon value="label_outline" :color="RandomColor" /> -->
+          <mu-checkbox class="checkbox" v-model="element.done"/>
+          <mu-text-field v-model="element.text" hintText="写点儿什么吧" @blur="onSave" :disabled="element.done" :class="element.done? 'act-input-done': 'act-input' " /> 
+          <!-- 是否需要多行文本 -->
         </div>
       </transition-group>
     </draggable>
     <div>{{myArray}}</div>
     <div class="op-btn_group">
-      <mu-raised-button label="新建" class="demo-raised-button" backgroundColor="#4caf50" @click="onCreate"/>
-      <mu-raised-button label="保存" class="demo-raised-button" @click="onSave" primary/>
-      <mu-raised-button label="清空" class="demo-raised-button" @click="onClearAll" secondary/>
+      <mu-raised-button label="新建" class="raised-button" backgroundColor="#4caf50" @click="onCreate"/>
+      <mu-raised-button label="保存" class="raised-button" @click="onSave" primary/>
+      <mu-raised-button label="清空" class="raised-button" @click="onClearAll" secondary/>
     </div>
     <!-- 删除确认弹窗 -->
     <mu-dialog :open="dialog" title="提示" @close="closeDialog">
@@ -38,7 +39,7 @@ export default {
             myArray: [],
             RandomColor: "#999",
             dialog: false,
-            dialogHeadText: '是否删除该活动？'
+            dialogHeadText: "是否删除该活动？"
         }
     },
     created() {
@@ -58,7 +59,8 @@ export default {
             console.log("button create", this.myArray)
             this.myArray.push({
                 id: this.myArray.length + 1,
-                name: ""
+                name: "",
+                done: false
             })
         },
         // 保存事件
@@ -74,14 +76,14 @@ export default {
             console.log("button delete")
         },
         // 清空localStorage
-        clearAllActs(){
-          localStorage.removeItem("mc_to_do_list")
-          this.dialog = false
-          this.myArray = []
+        clearAllActs() {
+            localStorage.removeItem("mc_to_do_list")
+            this.dialog = false
+            this.myArray = []
         },
         // 关闭对话框
-        closeDialog(){
-          this.dialog = false
+        closeDialog() {
+            this.dialog = false
         }
     }
 }
@@ -105,5 +107,17 @@ export default {
     opacity: 0.6;
     background: #c8ebfb;
     border: 2px dashed #666;
+}
+// checkbox样式
+.checkbox {
+  width: 48px;
+  height: 48px;
+}
+// 输入框样式
+.act-input {
+
+}
+.act-input-done {
+  background-color: #f1f1f1;
 }
 </style>
