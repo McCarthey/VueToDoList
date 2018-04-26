@@ -9,7 +9,8 @@
         <div v-for="element in myArray" :key="element.id" class="draggable-item">
           <!-- <mu-icon value="label_outline" :color="RandomColor" /> -->
           <mu-checkbox class="checkbox" v-model="element.done"/>
-          <mu-text-field v-model="element.text" hintText="写点儿什么吧" @blur="onSave" :disabled="element.done" :class="element.done? 'act-input-done': 'act-input' " /> 
+          <mu-text-field v-model="element.text" hintText="写点儿什么吧" @blur="onSave" :disabled="element.done" :class="element.done? 'act-input-done': 'act-input' " />
+          <mu-icon-button icon="delete" @click="onDelete" iconClass="icon-delete"/>
           <!-- 是否需要多行文本 -->
         </div>
       </transition-group>
@@ -75,6 +76,10 @@ export default {
             this.dialogHeadText = "是否删除全部活动？"
             console.log("button delete")
         },
+        // 删除单个事件
+        onDelete(){
+          console.log('删除该事件')
+        },
         // 清空localStorage
         clearAllActs() {
             localStorage.removeItem("mc_to_do_list")
@@ -101,6 +106,7 @@ export default {
 .draggable-item {
     cursor: move;
     border: 2px dashed transparent;
+    display: flex;
 }
 //空行的元素状态
 .sortable-ghost {
@@ -119,5 +125,10 @@ export default {
 }
 .act-input-done {
   background-color: #f1f1f1;
+}
+// 删除图标
+.icon-delete {
+  // background-color: rgba(0,0,0,0.87);
+  color: rgba(0,0,0,0.87);
 }
 </style>
