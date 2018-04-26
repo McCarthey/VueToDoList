@@ -5,7 +5,7 @@
       <transition-group>
         <div v-for="element in myArray" :key="element.id" class="draggable-item">
           <mu-icon value="label_outline" :color="element.color" />
-          <mu-text-field v-model="element.text" hintText="写点儿什么吧" /><br/>
+          <mu-text-field v-model="element.text" hintText="写点儿什么吧" @blur="onSave" /><br/>
         </div>
       </transition-group>
     </draggable>
@@ -45,6 +45,7 @@ export default {
   created(){
     let listString = localStorage.getItem('mc_to_do_list')
     let list = JSON.parse(listString)
+    this.myArray = list 
     console.log('读取localStorage中的内容',list)
   },
   methods: {
