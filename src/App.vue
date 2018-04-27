@@ -57,7 +57,7 @@ export default {
                 newItem.done = list[k]['taskDone']
                 result.push(newItem)
             }
-            this.myArray = list || []
+            this.myArray = result || []
         } else {
             this.myArray = list || []            
         }
