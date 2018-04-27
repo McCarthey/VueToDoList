@@ -46,7 +46,21 @@ export default {
     created() {
         let listString = localStorage.getItem("mc_to_do_list")
         let list = JSON.parse(listString)
-        this.myArray = list || []
+        // 老用户迁移
+        if (list instanceof Object) {
+            let result = []
+            for (let k in list) {
+                let newItem = {}
+                // 取出id
+                newItem.id = Number(k.split('act')[1])
+                newItem.text = obj[k]['taskName']
+                newItem.done = obj[k]['taskDone']
+                result.push(newItem)
+            }
+            this.myArray = list || []
+        } else {
+            this.myArray = list || []            
+        }
         console.log("读取localStorage中的内容", list)
     },
     methods: {
@@ -60,7 +74,7 @@ export default {
             console.log("button create", this.myArray)
             this.myArray.push({
                 id: this.myArray.length + 1,
-                name: "",
+                text:"",
                 done: false
             })
         },
@@ -77,10 +91,10 @@ export default {
             console.log("button delete")
         },
         // 删除单个事件
-        onDelete(index){
-          console.log(`删除${index}该事件?`)
-          this.myArray.splice(index,1)
-          this.onSave()
+        onDelete(index) {
+            console.log(`删除${index}该事件?`)
+            this.myArray.splice(index, 1)
+            this.onSave()
         },
         // 清空localStorage
         clearAllActs() {
@@ -118,19 +132,18 @@ export default {
 }
 // checkbox样式
 .checkbox {
-  width: 48px;
-  height: 48px;
+    width: 48px;
+    height: 48px;
 }
 // 输入框样式
 .act-input {
-
 }
 .act-input-done {
-  background-color: #f1f1f1;
+    background-color: #f1f1f1;
 }
 // 删除图标
 .icon-delete {
-  // background-color: rgba(0,0,0,0.87);
-  color: rgba(0,0,0,0.87);
+    // background-color: rgba(0,0,0,0.87);
+    color: rgba(0, 0, 0, 0.87);
 }
 </style>
