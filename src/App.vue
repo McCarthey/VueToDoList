@@ -46,8 +46,8 @@ export default {
     created() {
         let listString = localStorage.getItem("mc_to_do_list")
         let list = JSON.parse(listString)
-        // 老用户迁移
-        if (list instanceof Object) {
+        // 老用户迁移 判断是数组还是对象
+        if (Object.prototype.toString.call(list) === "[object Object]") {
             let result = []
             for (let k in list) {
                 let newItem = {}
