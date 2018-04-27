@@ -53,8 +53,8 @@ export default {
                 let newItem = {}
                 // 取出id
                 newItem.id = Number(k.split('act')[1])
-                newItem.text = obj[k]['taskName']
-                newItem.done = obj[k]['taskDone']
+                newItem.text = list[k]['taskName']
+                newItem.done = list[k]['taskDone']
                 result.push(newItem)
             }
             this.myArray = list || []
