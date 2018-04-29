@@ -134,6 +134,8 @@ export default {
 .checkbox {
     width: 48px;
     height: 48px;
+    display: inline-block;
+    vertical-align: middle;
 }
 // 输入框样式
 .act-input {
