@@ -148,4 +148,8 @@ export default {
     // background-color: rgba(0,0,0,0.87);
     color: rgba(0, 0, 0, 0.87);
 }
+// 底部操作按钮
+.op-btn_group {
+    float: right;
+}
 </style>
