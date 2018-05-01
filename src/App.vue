@@ -17,9 +17,9 @@
     </draggable>
     <!-- <div>{{myArray}}</div> -->
     <div class="op-btn_group">
-      <mu-raised-button label="新建" class="raised-button" backgroundColor="#4caf50" @click="onCreate"/>
-      <mu-raised-button label="保存" class="raised-button" @click="onSave" primary/>
-      <mu-raised-button label="清空" class="raised-button" @click="onClearAll" secondary/>
+      <mu-raised-button label="新建" class="raised-button btn-new" backgroundColor="#4caf50" @click="onCreate"/>
+      <mu-raised-button label="保存" class="raised-button btn-save" @click="onSave" primary/>
+      <mu-raised-button label="清空" class="raised-button btn-delete" @click="onClearAll" secondary/>
     </div>
     <!-- 删除确认弹窗 -->
     <mu-dialog :open="dialog" title="提示" @close="closeDialog">
