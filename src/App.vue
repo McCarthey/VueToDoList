@@ -10,6 +10,7 @@
         <!-- transition/animation https://vuefe.cn/v2/guide/transitions.html -->
       <transition-group name="list">
         <div v-for="(element,index) in myArray" :key="index" class="draggable-item">
+        <!-- A material design UI library for Vue.js, museUI  https://www.muse-ui.org -->
           <mu-checkbox class="checkbox" v-model="element.done"/>
           <mu-text-field v-model="element.text" hintText="写点儿什么吧" @blur="onSave" :disabled="element.done" :class="element.done? 'act-input-done': 'act-input' " />
           <mu-icon-button icon="delete" @click="onDelete(index)" iconClass="icon-delete"/>
