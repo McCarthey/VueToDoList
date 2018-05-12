@@ -19,9 +19,13 @@
     </draggable>
     <!-- <div>{{myArray}}</div> -->
     <div class="op-btn_group">
-      <mu-raised-button label="新建" class="raised-button btn-new" backgroundColor="#4caf50" @click="onCreate"/>
-      <mu-raised-button label="保存" class="raised-button btn-save" @click="onSave" primary/>
-      <mu-raised-button label="清空" class="raised-button btn-delete" @click="onClearAll" secondary/>
+      <div class="op-btn_group-left">
+        <mu-raised-button label="新建" class="raised-button btn-new" backgroundColor="#4caf50" @click="onCreate"/>
+      </div>
+      <div class="op-btn_group-right">
+        <mu-raised-button label="保存" class="raised-button btn-save" @click="onSave" primary/>
+        <mu-raised-button label="清空" class="raised-button btn-delete" @click="onClearAll" secondary/>
+      </div>
     </div>
     <!-- 删除确认弹窗 -->
     <mu-dialog :open="dialog" title="提示" @close="closeDialog">
@@ -154,6 +158,12 @@ export default {
 }
 // 底部操作按钮
 .op-btn_group {
+  padding: 0 16px;
+}
+.op-btn_group-left {
+  float: left;
+}
+.op-btn_group-right {
   float: right;
 }
 // 过渡动画
