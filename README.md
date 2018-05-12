@@ -2,9 +2,11 @@
 
 > A Vue.js project
 
+[demo => ](https://mccarthey.github.io/VueToDoList/)
+
 ## Build Setup
 
-``` bash
+```bash
 # install dependencies
 npm install
 
