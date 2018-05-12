@@ -12,5 +12,17 @@ h6 {
   padding: 0;
   margin: 0;
 }
+@media screen and (min-width: 960px) {
+  #app {
+    margin: 40px auto;
+    box-shadow: 0px 10px 30px #ddd;
+    padding: 40px;
+  }
+}
+@media screen and (max-width: 959px) {
+  #app {
+    margin: 40px auto;
+  }
+}
 
 @import './_muse-ui.scss';

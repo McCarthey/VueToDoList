@@ -125,9 +125,6 @@ export default {
 #app {
   min-height: 800px;
   max-width: 1000px;
-  margin: 40px auto;
-  box-shadow: 0px 10px 30px #ddd;
-  padding: 40px;
 }
 .draggable-item {
   cursor: move;
