@@ -2,7 +2,7 @@
 
 > A Vue.js project
 
-[demo => ](https://mccarthey.github.io/VueToDoList/)
+[demo here ](https://mccarthey.github.io/VueToDoList/)
 
 ## Build Setup
 
