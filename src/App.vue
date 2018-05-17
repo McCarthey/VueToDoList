@@ -48,7 +48,9 @@ export default {
   },
   created() {
     /*
-    * This is for 
+    * This is for adapting my old to-do-list project https://mccarthey.github.io/A-To-do-list/
+    * which is a original JS project. 
+    * You can compare these two projects
     */
     let listString = localStorage.getItem('mc_to_do_list')
     let list = JSON.parse(listString)
