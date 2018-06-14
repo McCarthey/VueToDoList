@@ -2,7 +2,7 @@
     "name": "Vue to do list",
     "short_name": "Vue to do list",
     "description": "An simple PWA of VueToDoList",
-    "start_url": "/",
+    "start_url": "/VueToDoList/",
     "display": "standalone",
     "orientation": "any",
     "background_color": "#ACE",
