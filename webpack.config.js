@@ -115,7 +115,8 @@ if (process.env.NODE_ENV === 'production') {
         new OfflinePlugin({
             appShell: '/VueToDoList/index.html',
             caches: 'all',
-            publicPath: '/VueToDoList/dist/'
+            publicPath: '',
+            relativePaths: true,
         })
     ])
 }
