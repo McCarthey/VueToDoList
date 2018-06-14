@@ -112,8 +112,6 @@ if (process.env.NODE_ENV === 'production') {
         new webpack.LoaderOptionsPlugin({
             minimize: true
         }),
-        new OfflinePlugin({
-            publicPath: '/VueToDoList/dist/'
-        })
+        new OfflinePlugin()
     ])
 }
