@@ -113,6 +113,7 @@ if (process.env.NODE_ENV === 'production') {
             minimize: true
         }),
         new OfflinePlugin({
+            appShell: '/',
             publicPath: '/VueToDoList/dist/'
         })
     ])
