@@ -1,6 +1,6 @@
 var path = require('path')
 var webpack = require('webpack')
-var OfflinePlugin = require('offline-plugin');
+var SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin');
 
 module.exports = {
     entry: './src/main.js',
@@ -112,11 +112,6 @@ if (process.env.NODE_ENV === 'production') {
         new webpack.LoaderOptionsPlugin({
             minimize: true
         }),
-        new OfflinePlugin({
-            appShell: '/VueToDoList/index.html',
-            caches: 'all',
-            publicPath: '',
-            relativePaths: true,
-        })
+        new SWPrecacheWebpackPlugin()
     ])
 }
