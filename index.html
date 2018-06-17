@@ -2,23 +2,37 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <title>vue-to-do-list</title>
-    <!-- 引入md图标 -->
-    <link href="https://cdn.bootcss.com/material-design-icons/3.0.1/iconfont/material-icons.min.css" rel="stylesheet">
-    <link rel="manifest" href="manifest.json">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>vue-to-do-list</title>
+  <!-- 引入md图标 -->
+  <link href="https://cdn.bootcss.com/material-design-icons/3.0.1/iconfont/material-icons.min.css" rel="stylesheet">
+  <link rel="manifest" href="manifest.json">
 </head>
 
 <body>
-    <div id="app"></div>
-    <script src="/dist/build.js"></script>
-    <script src="/VueToDoList/dist/build.js"></script>
-    <script src="/dist/service-worker.js"></script>
-    <script src="/VueToDoList/dist/service-worker.js"></script>
-    <script>
-        (function() { if ('serviceWorker' in navigator) { navigator.serviceWorker.register('/service-worker.js'); } })();
-    </script>
+  <div id="app"></div>
+  <script src="/dist/build.js"></script>
+  <script src="/VueToDoList/dist/build.js"></script>
+  <script src="/dist/service-worker.js"></script>
+  <script src="/VueToDoList/dist/service-worker.js"></script>
+  <script>
+    (function () {
+      if ('serviceWorker' in navigator) {
+        try {
+          navigator.serviceWorker.register('/dist/service-worker.js');
+        } finally {
+          console.log('尝试注册sw')
+        }
+        try {
+          navigator.serviceWorker.register('/VueToDoList/dist/service-worker.js');
+        } finally {
+          console.log('尝试注册sw')
+        }
+      }
+    })();
+
+  </script>
 </body>
 
 </html>
